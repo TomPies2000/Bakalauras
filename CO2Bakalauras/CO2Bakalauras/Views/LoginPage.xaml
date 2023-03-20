@@ -7,12 +7,19 @@
              x:Class="CO2Bakalauras.Views.LoginPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Label Text="Prisijungimo vardas"/>
-            <Entry Text="{Binding Login}"/>
-            <Label Text="Slaptažodis"/>
-            <Entry IsPassword="True" Text="{Binding Psw}"/>
-            <Button VerticalOptions="Center" Text="Prisijungti" Command="{Binding LoginCommand}"/>
+        <StackLayout Padding="40" VerticalOptions="Center">
+            <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
+
+            <Entry Placeholder="Prisijungimo vardas" Text="{Binding Login}" TextColor="White" PlaceholderColor="Gray"/>
+            <Entry Placeholder="Slaptažodis" IsPassword="True" Text="{Binding Psw}" TextColor="White" PlaceholderColor="Gray"/>
+            <Button 
+                VerticalOptions="Center" 
+                Text="Prisijungti" 
+                Command="{Binding LoginCommand}"
+                BorderColor="ForestGreen"
+                BorderWidth="2"
+                CornerRadius="50"
+            ></Button>
             
         </StackLayout>
     </ContentPage.Content>
