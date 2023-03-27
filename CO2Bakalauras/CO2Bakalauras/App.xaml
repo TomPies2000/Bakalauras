@@ -15,17 +15,31 @@
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="Transparent" />
+                                    <Setter Property="VerticalOptions" Value="Center"/>
+                                    <Setter Property="TextColor" Value="#12b693"/>
+                                    <Setter Property="BorderColor" Value="#12b693"/>
+                                    <Setter Property="BorderWidth" Value="2"/>
+                                    <Setter Property="CornerRadius" Value="50"/>
                                 </VisualState.Setters>
                             </VisualState>
-                            <VisualState x:Name="Disabled">
+                            <VisualState x:Name="Pressed">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="#332196F3" />
+                                    <Setter Property="BackgroundColor" Value="#83d8cb" />
+                                    <Setter Property="VerticalOptions" Value="Center"/>
+                                    <Setter Property="TextColor" Value="#12b693"/>
+                                    <Setter Property="BorderColor" Value="#12b693"/>
+                                    <Setter Property="BorderWidth" Value="2"/>
+                                    <Setter Property="CornerRadius" Value="50"/>
                                 </VisualState.Setters>
                             </VisualState>
+                            
                         </VisualStateGroup>
                     </VisualStateGroupList>
                 </Setter>
+            </Style>
+            <Style TargetType="ContentPage" x:Key="ContentStyle">
+                <Setter Property="BackgroundColor" Value="#e1f3f0"/>
             </Style>
         </ResourceDictionary>        
     </Application.Resources>

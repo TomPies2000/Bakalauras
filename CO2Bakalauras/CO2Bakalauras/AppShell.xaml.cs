@@ -11,11 +11,12 @@ namespace CO2Bakalauras
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
             Routing.RegisterRoute(nameof(FirstPage), typeof(FirstPage));
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
+            Routing.RegisterRoute(nameof(RegisterPage), typeof(RegisterPage));
+            Routing.RegisterRoute(nameof(MileagePage), typeof(MileagePage));
+            Routing.RegisterRoute(nameof(HousePage), typeof(HousePage));
+            Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
         }
-
     }
 }

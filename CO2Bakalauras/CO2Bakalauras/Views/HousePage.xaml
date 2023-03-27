@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels"
+             x:Class="CO2Bakalauras.Views.HousePage"
+             Style="{StaticResource ContentStyle}">
+
+    <ContentPage.BindingContext>
+        <vm:HouseViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="house.png" VerticalOptions="Center" HeightRequest="250" Margin="50"/>
+
+
+            <Entry Placeholder="Plotas" Text="{Binding Area}" TextColor="#11b498" Keyboard="Numeric" PlaceholderColor="Gray" IsVisible="{Binding AreaVisible}"/>
+            <Entry Placeholder="Elektros sąnaudos" Text="{Binding Electricity}" Keyboard="Numeric" TextColor="#11b498" PlaceholderColor="Gray" IsVisible="{Binding ElectricityVisible}"/>
+            <Entry Placeholder="Vandens sąnaudos" Text="{Binding Water}" Keyboard="Numeric" TextColor="#11b498" PlaceholderColor="Gray" IsVisible="{Binding WaterVisible}"/>
+            <Picker SelectedItem ="{Binding Selected}" Title="Šildymo tipas" IsVisible="{Binding TypeVisible}">
+                <Picker.Items>
+                    <x:String>Dujos</x:String>
+                    <x:String>Centrinis šildymas</x:String>
+                    <x:String>Elektra</x:String>
+                    <x:String>Nežinau</x:String>
+                </Picker.Items>
+            </Picker>
+            <Entry Placeholder="Dujų sąnaudos" Text="{Binding Gas}" Keyboard="Numeric" TextColor="#11b498" PlaceholderColor="Gray" IsVisible="{Binding GasVisible}"/>
+
+            <Button Text="Toliau" Margin = "0,50,0,20" Command="{Binding NextCommand}"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

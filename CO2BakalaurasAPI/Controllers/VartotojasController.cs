@@ -1,4 +1,5 @@
 using CO2BakalaurasAPI.Data;
+using CO2BakalaurasAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CO2BakalaurasAPI.Controllers
@@ -14,6 +15,7 @@ namespace CO2BakalaurasAPI.Controllers
         {
             _dbContext = dbContext;
         }
+
 
         [HttpGet("GetUserByID/{ID}")]
         public IActionResult GetUserByID([FromRoute] int ID)
@@ -34,6 +36,7 @@ namespace CO2BakalaurasAPI.Controllers
             }
         }
 
+
         [HttpGet("GetUserByLogin/{login}/{psw}")]
         public IActionResult GetUserByLogin([FromRoute] string login, [FromRoute] string psw)
         {
@@ -52,5 +55,28 @@ namespace CO2BakalaurasAPI.Controllers
             }
         }
 
+
+        [HttpPost("CreateUser")]
+        public IActionResult CreateUser([FromBody] VartotojasRequest request)
+        {
+            Vartotojas vartotojas = new()
+            {
+                PRISIJUNGIMO_VARDAS = request.PRISIJUNGIMO_VARDAS,
+                VARTOTOJO_VARDAS = request.VARTOTOJO_VARDAS,
+                VARTOTOJO_PAVARDE = request.VARTOTOJO_PAVARDE,
+                VARTOTOJO_EMAIL = request.VARTOTOJO_EMAIL,
+                VARTOTOJO_SLAPTAZODIS = request.VARTOTOJO_SLAPTAZODIS
+            };
+            try
+            {
+                _dbContext.VARTOTOJAS.Add(vartotojas);
+                _dbContext.SaveChanges();
+                return Ok();
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
     }
 }

@@ -36,5 +36,45 @@ namespace CO2Bakalauras.Services
                 throw new Exception();
             }
         }
+        public async Task CreateUser(Vartotojas vartotojas)
+        {
+            string json = JsonConvert.SerializeObject(vartotojas);
+            StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpResponseMessage message;
+            message = await _client.PostAsync("/api/Vartotojas/CreateUser", stringContent);
+        }
+        public async Task<List<Sanaudos>> GetUserUsage(int userID)
+        {
+            var response = await _client.GetAsync($"/api/Sanaudos/GetUsageByUserID/{userID}");
+            List<Sanaudos> sanaudos = null;
+            if (response.IsSuccessStatusCode)
+            {
+                string userContents = await response.Content.ReadAsStringAsync();
+                sanaudos = JsonConvert.DeserializeObject <List<Sanaudos>>(userContents);
+            }
+            return sanaudos;
+        }
+        public async Task CreateUsage(Sanaudos sanaudos)
+        {
+            string json = JsonConvert.SerializeObject(sanaudos);
+            StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpResponseMessage message;
+            message = await _client.PostAsync("/api/Sanaudos/CreateUsage", stringContent);
+        }
+        public async Task CreateCar(Automobilis auto)
+        {
+            string json = JsonConvert.SerializeObject(auto);
+            StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpResponseMessage message;
+            message = await _client.PostAsync("/api/Automobilis/CreateCar", stringContent);
+        }
+        
+        public async Task CreateHouse(Butas butas)
+        {
+            string json = JsonConvert.SerializeObject(butas);
+            StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpResponseMessage message;
+            message = await _client.PostAsync("/api/Butas/CreateHouse", stringContent);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using CO2Bakalauras.Services;
+﻿using CO2Bakalauras.Models;
+using CO2Bakalauras.Services;
 using CO2Bakalauras.Views;
 using System;
 using Xamarin.Forms;
@@ -8,12 +9,11 @@ namespace CO2Bakalauras
 {
     public partial class App : Application
     {
-
+        public Vartotojas CurrentUser { get; set; }
         public App()
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 

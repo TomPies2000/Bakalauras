@@ -4,7 +4,8 @@
        xmlns:local="clr-namespace:CO2Bakalauras.Views"
        Title="CO2Bakalauras"
        x:Class="CO2Bakalauras.AppShell"
-       FlyoutBehavior="Disabled">
+       FlyoutBehavior="Disabled"
+       Shell.NavBarIsVisible="False">
     
 
     <!--
@@ -16,7 +17,7 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.BackgroundColor" Value="#e1f3f0" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
@@ -33,21 +34,33 @@
     
     <ShellItem Route="first">
         <ShellContent Route="FirstPage" ContentTemplate="{DataTemplate local:FirstPage}">
-
         </ShellContent>
     </ShellItem>
 
     <ShellItem Route="login">
         <ShellContent Route="FirstPage/LoginPage" ContentTemplate="{DataTemplate local:LoginPage}">
-            
+        </ShellContent>
+    </ShellItem>
+
+    <ShellItem Route="register">
+        <ShellContent Route="FirstPage/RegisterPage" ContentTemplate="{DataTemplate local:RegisterPage}">
         </ShellContent>
     </ShellItem>
     
-    <TabBar>
-        <ShellContent Title="About" Icon="icon_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-        <ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
-    </TabBar>
-
+    <ShellItem Route="mileage">
+        <ShellContent Route="MileagePage" ContentTemplate="{DataTemplate local:MileagePage}">
+        </ShellContent>
+    </ShellItem>
+    
+    <ShellItem Route="house">
+        <ShellContent Route="HousePage" ContentTemplate="{DataTemplate local:HousePage}">
+        </ShellContent>
+    </ShellItem>
+    
+    <ShellItem Route="main">
+        <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}">
+        </ShellContent>
+    </ShellItem>
 
 
 </Shell>

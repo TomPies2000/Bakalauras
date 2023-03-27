@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CO2Bakalauras.Views.RegisterPage"
+             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels"
+             BackgroundColor="#e1f3f0"
+             Shell.NavBarIsVisible="False">
+    
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            
+            <Image Source="logo.png" VerticalOptions="Center" HeightRequest="250" />
+            <Entry Placeholder="Prisijungimo vardas"   Text="{Binding Login}" TextColor="#11b498" PlaceholderColor="Gray"/>
+            <Entry Placeholder="Vardas" Text="{Binding Name}" TextColor="#11b498" PlaceholderColor="Gray"/>
+            <Entry Placeholder="Pavardė" Text="{Binding Surname}" TextColor="#11b498" PlaceholderColor="Gray"/>
+            <Entry Placeholder="Elektroninis paštas" Text="{Binding Email}" TextColor="#11b498" PlaceholderColor="Gray"/>
+            <Entry Placeholder="Slaptažodis" Text="{Binding Psw1}" TextColor="#11b498" PlaceholderColor="Gray"/>
+            <Entry Placeholder="Pakartokite slaptažodį" Text="{Binding Psw2}" TextColor="#11b498" PlaceholderColor="Gray"/>
+            <Button 
+                VerticalOptions="Center" 
+                Text="Registruotis" 
+                Margin="30"
+                Command="{Binding CreateUser}"
+                TextColor="#12b693"
+                BackgroundColor="Transparent"
+                BorderColor="#12b693"
+                BorderWidth="2"
+                CornerRadius="50"
+                
+            ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

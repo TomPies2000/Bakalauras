@@ -2,18 +2,54 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CO2Bakalauras.Views.FirstPage"
-             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels">
+             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels"
+             BackgroundColor="#e1f3f0"
+             Shell.NavBarIsVisible="False">
     <ContentPage.BindingContext>
         <vm:FirstViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Margin="20">
+            <Image Source="logo.png" VerticalOptions="Center" HeightRequest="300" />
 
-            <Button Text="Prisijungti su Google" Margin="0,5" Command="{Binding LoginWithGoogle}"/>
-            
-            <Button Text="Prisijungti su paskyra" Margin="0,5" Command="{Binding Login}"/>
+            <ActivityIndicator  IsRunning="{Binding ActivityIndicator}" />
 
-            <Button Text="Neturi paskyros?" Background="White" Command="{Binding Register}" TextColor="{StaticResource Primary}" FontSize="14" />
+            <Button 
+                
+                VerticalOptions="Center" 
+                Text="Prisijungti su Google" 
+                Margin="0,5" 
+                Command="{Binding LoginWithGoogle}"
+                TextColor="#12b693"
+                BackgroundColor="Transparent"
+                BorderColor="#12b693"
+                BorderWidth="2"
+                CornerRadius="50"
+                
+            ></Button>
+
+            <Button 
+                VerticalOptions="Center" 
+                Text="Prisijungti su paskyra" 
+                Margin="0,5" 
+                Command="{Binding Login}"
+                TextColor="#12b693"
+                BackgroundColor="Transparent"
+                BorderColor="#12b693"
+                BorderWidth="2"
+                CornerRadius="50"
+                
+            ></Button>
+
+            <Button 
+                Text="Neturi paskyros?" 
+                BackgroundColor="Transparent" 
+                Command="{Binding Register}" 
+                TextColor="#12b693" 
+                FontSize="14" 
+                BorderColor="Transparent"
+                BorderWidth="0"
+            ></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

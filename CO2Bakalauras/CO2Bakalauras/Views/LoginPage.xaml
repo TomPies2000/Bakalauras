@@ -5,18 +5,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CO2Bakalauras.Views.LoginPage"
-             Shell.NavBarIsVisible="False">
+             Style="{StaticResource ContentStyle}">
     <ContentPage.Content>
         <StackLayout Padding="40" VerticalOptions="Center">
-            <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
+            <Image Source="logo.png" VerticalOptions="Center" HeightRequest="300" />
 
-            <Entry Placeholder="Prisijungimo vardas" Text="{Binding Login}" TextColor="White" PlaceholderColor="Gray"/>
-            <Entry Placeholder="Slaptažodis" IsPassword="True" Text="{Binding Psw}" TextColor="White" PlaceholderColor="Gray"/>
+            <ActivityIndicator  IsRunning="{Binding ActivityIndicator}" />
+            
+            <Entry Placeholder="Prisijungimo vardas" Text="{Binding Login}" TextColor="#11b498" PlaceholderColor="Gray"/>
+            <Entry Placeholder="Slaptažodis" IsPassword="True" Text="{Binding Psw}" TextColor="#11b498" PlaceholderColor="Gray"/>
             <Button 
                 VerticalOptions="Center" 
                 Text="Prisijungti" 
+                TextColor="#12b693"
                 Command="{Binding LoginCommand}"
-                BorderColor="ForestGreen"
+                BackgroundColor="Transparent"
+                BorderColor="#12b693"
                 BorderWidth="2"
                 CornerRadius="50"
             ></Button>
