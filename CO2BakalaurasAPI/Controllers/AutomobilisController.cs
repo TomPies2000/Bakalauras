@@ -37,5 +37,24 @@ namespace CO2BakalaurasAPI.Controllers
                 return StatusCode(500);
             }
         }
+
+
+        [HttpGet("GetCarByUsageId/{ID}")]
+        public IActionResult GetCarByUsageId([FromRoute] int ID)
+        {
+            try
+            {
+                var automobilis = _dbContext.AUTOMOBILIS.FirstOrDefault(x => x.SANAUDU_ID == ID);
+                if (automobilis == null)
+                {
+                    return StatusCode(404);
+                }
+                return Ok(automobilis);
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
     }
 }

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace CO2Bakalauras.ViewModels
+namespace CO2Bakalauras.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MenuPageDetail : ContentPage
+    public partial class AddUsagePage2 : ContentPage
     {
-        public MenuPageDetail()
+        public AddUsagePage2()
         {
             InitializeComponent();
         }

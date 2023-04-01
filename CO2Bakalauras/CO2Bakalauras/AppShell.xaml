@@ -4,9 +4,8 @@
        xmlns:local="clr-namespace:CO2Bakalauras.Views"
        Title="CO2Bakalauras"
        x:Class="CO2Bakalauras.AppShell"
-       FlyoutBehavior="Disabled"
-       Shell.NavBarIsVisible="False">
-    
+       FlyoutBehavior="Disabled">
+
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -14,16 +13,17 @@
         https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
     -->
 
-    <Shell.Resources>
+
+        <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="#e1f3f0" />
+                <Setter Property="Shell.BackgroundColor" Value="#11b498" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#11b498" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="Transparent"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
             </Style>
@@ -31,7 +31,10 @@
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
+
     
+    
+            
     <ShellItem Route="first">
         <ShellContent Route="FirstPage" ContentTemplate="{DataTemplate local:FirstPage}">
         </ShellContent>
@@ -51,16 +54,32 @@
         <ShellContent Route="MileagePage" ContentTemplate="{DataTemplate local:MileagePage}">
         </ShellContent>
     </ShellItem>
-    
+
     <ShellItem Route="house">
         <ShellContent Route="HousePage" ContentTemplate="{DataTemplate local:HousePage}">
         </ShellContent>
     </ShellItem>
+
+    <TabBar>
+        <ShellContent Title="Sanaudos" Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" Icon="Usage.png"/>
+        <ShellContent Title="Statistika" Route="MainPage1" ContentTemplate="{DataTemplate local:MainPage}" Icon="Statistics.png"/>
+        <ShellContent Title="Užduotys" Route="MainPage2" ContentTemplate="{DataTemplate local:MainPage}" Icon="Tasks.png"/>
+        <ShellContent Title="Draugai" Route="MainPage3" ContentTemplate="{DataTemplate local:MainPage}" Icon="Friends.png"/>
+        <ShellContent Title="Profilis" Route="ProfilePage" ContentTemplate="{DataTemplate local:ProfilePage}" Icon="Profile.png"/>
+    </TabBar>
     
-    <ShellItem Route="main">
-        <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}">
+    <ShellItem Route="addUsage">
+        <ShellContent Route="MainPage/AddUsagePage" ContentTemplate="{DataTemplate local:AddUsagePage}">
         </ShellContent>
     </ShellItem>
-
-
+    
+    <ShellItem Route="addUsage2">
+        <ShellContent Route="MainPage/AddUsagePage2" ContentTemplate="{DataTemplate local:AddUsagePage2}">
+        </ShellContent>
+    </ShellItem>
+    
+    <ShellItem Route="addUsageWithCar">
+        <ShellContent Route="MainPage/AddUsagePage/AddUsagePage2" ContentTemplate="{DataTemplate local:AddUsagePage2}">
+        </ShellContent>
+    </ShellItem>
 </Shell>

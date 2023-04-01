@@ -58,6 +58,7 @@ namespace CO2Bakalauras.ViewModels
             }
 
         }
+
         private async void OnWithoutCarClicked()
         {
             Model = null;

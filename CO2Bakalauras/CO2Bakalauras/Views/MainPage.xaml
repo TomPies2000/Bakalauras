@@ -2,8 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CO2Bakalauras.Views.MainPage"
-             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels"
-             Style="{StaticResource ContentStyle}">
+             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels" 
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             Style="{StaticResource ContentStyle}"
+             Title="Sanaudos">
+    
+    
     
     <ContentPage.BindingContext>
         <vm:MainViewModel/>
@@ -11,9 +15,30 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            
+            <Label Text="Per paskutinį mėnesį sugeneruota Kg CO2:" 
+                   HorizontalOptions="CenterAndExpand" 
+                   Margin="0,40,0,0"
+                   FontSize="16"/>
+            <Label Text="{Binding CoSum}"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="50" 
+                   TextColor="#11b498"/>
+
+            <microcharts:ChartView x:Name="chartView" HeightRequest="300" Chart ="{Binding ChartView}" />
+
+            <Button 
+                VerticalOptions="Center" 
+                Text="Pridėti sanaudų informaciją" 
+                TextColor="#12b693"
+                Command="{Binding AddUsageCommand}"
+                Margin="50,80"
+                BackgroundColor="Transparent"
+                BorderColor="#12b693"
+                BorderWidth="2"
+                CornerRadius="50"
+            ></Button>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

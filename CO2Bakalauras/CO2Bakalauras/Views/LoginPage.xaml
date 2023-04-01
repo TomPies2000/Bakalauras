@@ -5,7 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CO2Bakalauras.Views.LoginPage"
-             Style="{StaticResource ContentStyle}">
+             Style="{StaticResource ContentStyle}"
+             Shell.NavBarIsVisible="False">
+    
     <ContentPage.Content>
         <StackLayout Padding="40" VerticalOptions="Center">
             <Image Source="logo.png" VerticalOptions="Center" HeightRequest="300" />

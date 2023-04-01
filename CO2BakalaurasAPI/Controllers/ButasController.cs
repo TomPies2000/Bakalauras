@@ -38,5 +38,23 @@ namespace CO2BakalaurasAPI.Controllers
                 return StatusCode(500);
             }
         }
+
+        [HttpGet("GetHouseByUsageId/{ID}")]
+        public IActionResult GetHouseByUsageId([FromRoute] int ID)
+        {
+            try
+            {
+                var butas = _dbContext.BUTAS.FirstOrDefault(x => x.SANAUDU_ID == ID);
+                if (butas == null)
+                {
+                    return StatusCode(404);
+                }
+                return Ok(butas);
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
     }
 }

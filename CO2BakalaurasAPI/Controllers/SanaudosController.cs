@@ -1,6 +1,7 @@
 ﻿using CO2BakalaurasAPI.Data;
 using CO2BakalaurasAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace CO2BakalaurasAPI.Controllers
@@ -34,6 +35,7 @@ namespace CO2BakalaurasAPI.Controllers
                 return StatusCode(500);
             }
         }
+
         [HttpPost("CreateUsage")]
         public IActionResult CreateUsage([FromBody] SanaudosRequest request)
         {
@@ -56,6 +58,29 @@ namespace CO2BakalaurasAPI.Controllers
             {
                 return StatusCode(500);
             }
+        }
+
+        [HttpPut("UpdateUsage")]
+        public IActionResult UpdateUsage([FromBody] SanaudosRequest request)
+        {
+            try
+            {
+                var sanaudos = _dbContext.SANAUDOS.FirstOrDefault(x => x.SANAUDU_ID == request.SANAUDU_ID);
+                if (sanaudos == null) return StatusCode(404);
+
+                sanaudos.AUTOMOBILIO_RIDA = request.AUTOMOBILIO_RIDA;
+                sanaudos.ELEKTROS_SANAUDOS = request.ELEKTROS_SANAUDOS;
+                sanaudos.VANDENS_SANAUDOS = request.VANDENS_SANAUDOS;
+                sanaudos.DUJU_SANAUDOS = request.DUJU_SANAUDOS;
+                _dbContext.Entry(sanaudos).State = EntityState.Modified;
+                _dbContext.SaveChanges();
+                return Ok();
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+
         }
 
     }

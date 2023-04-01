@@ -16,7 +16,9 @@ namespace CO2Bakalauras
             Routing.RegisterRoute(nameof(RegisterPage), typeof(RegisterPage));
             Routing.RegisterRoute(nameof(MileagePage), typeof(MileagePage));
             Routing.RegisterRoute(nameof(HousePage), typeof(HousePage));
-            Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
+            Routing.RegisterRoute(nameof(AddUsagePage), typeof(AddUsagePage));
+            Routing.RegisterRoute(nameof(AddUsagePage2), typeof(AddUsagePage2));
+
         }
     }
 }

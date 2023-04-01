@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels"
+             x:Class="CO2Bakalauras.Views.AddUsagePage2"
+             Style="{StaticResource ContentStyle}">
+
+    <ContentPage.BindingContext>
+        <vm:AddUsage2ViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="lighting.png" VerticalOptions="Center" HeightRequest="250" Margin="50" IsVisible="{Binding ElectricityVisible}"/>
+            <Label Text="{Binding CurrentElectricity}" IsVisible="{Binding ElectricityVisible}"/>
+            <Entry Placeholder="Elektros sąnaudos" Text="{Binding Electricity}" Keyboard="Numeric" TextColor="#11b498" PlaceholderColor="Gray" IsVisible="{Binding ElectricityVisible}"/>
+
+            <Image Source="water.png" VerticalOptions="Center" HeightRequest="250" Margin="50" IsVisible="{Binding WaterVisible}"/>
+            <Label Text="{Binding CurrentWater}" IsVisible="{Binding WaterVisible}"/>
+            <Entry Placeholder="Vandens sąnaudos" Text="{Binding Water}" Keyboard="Numeric" TextColor="#11b498" PlaceholderColor="Gray" IsVisible="{Binding WaterVisible}"/>
+
+            <Image Source="flame.png" VerticalOptions="Center" HeightRequest="250" Margin="50" IsVisible="{Binding GasVisible}"/>
+            <Label Text="{Binding CurrentGas}" IsVisible="{Binding GasVisible}"/>
+            <Entry Placeholder="Dujų sąnaudos" Text="{Binding Gas}" Keyboard="Numeric" TextColor="#11b498" PlaceholderColor="Gray" IsVisible="{Binding GasVisible}"/>
+
+            <Button Text="Toliau" Margin = "0,50,0,20" Command="{Binding NextCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

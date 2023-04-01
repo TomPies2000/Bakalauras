@@ -1,6 +1,7 @@
 ﻿
 
 using System;
+using System.Collections.Generic;
 
 namespace CO2Bakalauras.Models
 {
@@ -14,5 +15,10 @@ namespace CO2Bakalauras.Models
         public decimal VANDENS_SANAUDOS { get; set; }
         public decimal DUJU_SANAUDOS { get; set; }
         public DateTime DATA { get; set; }
+
+        public static implicit operator Sanaudos(List<Sanaudos> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

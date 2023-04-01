@@ -2,15 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels"
-             x:Class="CO2Bakalauras.Views.MileagePage"
+             x:Class="CO2Bakalauras.Views.AddUsagePage"
              Style="{StaticResource ContentStyle}">
-    
+
     <ContentPage.BindingContext>
-        <vm:MileageViewModel/>
+        <vm:AddUsageViewModel/>
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+        <StackLayout>
             <Image Source="vehicle.png" VerticalOptions="Center" HeightRequest="300"/>
             <Label 
                 HorizontalTextAlignment="Center"
@@ -18,14 +18,12 @@
                 TextColor="#12b693"
                 FontSize="Large"
                 Margin=" 0,0,0,30"/>
-            
-            <Entry Placeholder="Automobilio markė" Text="{Binding Model}" TextColor="#11b498" PlaceholderColor="#12b693"/>
+
+            <Label Text="{Binding CurrentMileage}"/>
             <Entry Placeholder="Rida" Keyboard="Numeric" Text="{Binding Mileage}" TextColor="#11b498" PlaceholderColor="#12b693"/>
-            <Entry Placeholder="Svoris" Keyboard="Numeric" Text="{Binding Weight}" TextColor="#11b498" PlaceholderColor="#12b693"/>
             <ActivityIndicator  IsRunning="{Binding ActivityIndicator}"/>
             <Button Text="Pateikti" Margin = "0,50,0,20" Command="{Binding AddCarCommand}"/>
-            <Button Text=" Neturiu automobilio" TextColor="#11b498" BorderColor="Red" Command="{Binding WithoutCarCommand}"/>
-            
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
