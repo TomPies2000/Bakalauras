@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels"
+             x:Class="CO2Bakalauras.Views.ChangeProfilePage"
+             Style="{StaticResource ContentStyle}"
+             Title="Profilio informacijos keitimas">
+
+    <ContentPage.BindingContext>
+        <vm:ChangeProfileVieWModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Prisijungimo vardas" FontSize="Large" TextColor="#11b498" Margin="15,50,0,0"/>
+            <Entry Text="{Binding Login}" TextColor="#11b498" PlaceholderColor="Gray" Margin="0,0,0,25"/>
+
+            <Label Text="Vardas" FontSize="Large" TextColor="#11b498" Margin="15,0,0,0"/>
+            <Entry Text="{Binding Name}" TextColor="#11b498" PlaceholderColor="Gray" Margin="0,0,0,25"/>
+
+            <Label Text="Pavardė" FontSize="Large" TextColor="#11b498" Margin="15,0,0,0"/>
+            <Entry Text="{Binding Surname}" TextColor="#11b498" PlaceholderColor="Gray" Margin="0,0,0,25"/>
+
+            <Label Text="El. paštas" FontSize="Large" TextColor="#11b498" Margin="15,0,0,0"/>
+            <Entry Text="{Binding Email}" TextColor="#11b498" PlaceholderColor="Gray" Margin="0,0,0,25"/>
+
+            <Button 
+                VerticalOptions="Center" 
+                Text="Atnaujinti" 
+                TextColor="#12b693"
+                Command="{Binding UpdateProfileCommand}"
+                BackgroundColor="Transparent"
+                BorderColor="#12b693"
+                BorderWidth="2"
+                CornerRadius="50"
+                Margin="40,20"
+            ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

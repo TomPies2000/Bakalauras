@@ -13,10 +13,19 @@ namespace CO2Bakalauras.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
+        readonly MainViewModel viewModelClass;
         public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = new MainViewModel();
+            viewModelClass = new MainViewModel();
+            this.BindingContext = viewModelClass;
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            viewModelClass.VModelActive();
+        }
+
     }
 }

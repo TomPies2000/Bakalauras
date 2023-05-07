@@ -15,8 +15,8 @@
 
 
             <Entry Placeholder="Plotas" Text="{Binding Area}" TextColor="#11b498" Keyboard="Numeric" PlaceholderColor="Gray" IsVisible="{Binding AreaVisible}"/>
-            <Entry Placeholder="Elektros sąnaudos" Text="{Binding Electricity}" Keyboard="Numeric" TextColor="#11b498" PlaceholderColor="Gray" IsVisible="{Binding ElectricityVisible}"/>
-            <Entry Placeholder="Vandens sąnaudos" Text="{Binding Water}" Keyboard="Numeric" TextColor="#11b498" PlaceholderColor="Gray" IsVisible="{Binding WaterVisible}"/>
+            <Entry Placeholder="Elektros sąnaudos (skaitiklio duomenys)" Text="{Binding Electricity}" Keyboard="Numeric" TextColor="#11b498" PlaceholderColor="Gray" IsVisible="{Binding ElectricityVisible}"/>
+            <Entry Placeholder="Vandens sąnaudos (skaitiklio duomenys)" Text="{Binding Water}" Keyboard="Numeric" TextColor="#11b498" PlaceholderColor="Gray" IsVisible="{Binding WaterVisible}"/>
             <Picker SelectedItem ="{Binding Selected}" Title="Šildymo tipas" IsVisible="{Binding TypeVisible}">
                 <Picker.Items>
                     <x:String>Dujos</x:String>
@@ -25,7 +25,7 @@
                     <x:String>Nežinau</x:String>
                 </Picker.Items>
             </Picker>
-            <Entry Placeholder="Dujų sąnaudos" Text="{Binding Gas}" Keyboard="Numeric" TextColor="#11b498" PlaceholderColor="Gray" IsVisible="{Binding GasVisible}"/>
+            <Entry Placeholder="Dujų sąnaudos (skaitiklio duomenys)" Text="{Binding Gas}" Keyboard="Numeric" TextColor="#11b498" PlaceholderColor="Gray" IsVisible="{Binding GasVisible}"/>
 
             <Button Text="Toliau" Margin = "0,50,0,20" Command="{Binding NextCommand}"/>
 

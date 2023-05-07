@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels" 
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="CO2Bakalauras.Views.FriendInfoPage"
+             Style="{StaticResource ContentStyle}"
+             Title="Statistika">
+    
+    <ContentPage.BindingContext>
+        <vm:FriendInfoViewModel/>
+    </ContentPage.BindingContext>
+    
+    
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label Text="{Binding Lygis}" FontSize="20" TextColor="#11b498" HorizontalOptions="Center" Margin="20"/>
+            <Label Text="{Binding TaskuSkaicius}" FontSize="20" TextColor="#11b498" HorizontalOptions="Center"/>
+            
+            <microcharts:ChartView x:Name="chartView" HeightRequest="300" Chart ="{Binding ChartView}" />
+
+            <Button Text="Pašalinti draugą" Margin = "0,75,0,20" Command="{Binding DeleteFriendCommand}" BorderColor="Red" IsVisible="{Binding DeleteButtonVisible}"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

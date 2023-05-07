@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels"
+             x:Class="CO2Bakalauras.Views.StatisticPage"
+             Title="Statistika"
+             Style="{StaticResource ContentStyle}">
+
+    <ContentPage.BindingContext>
+        <vm:StatisticViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label Text="{Binding Lygis}"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="40" 
+                   TextColor="#11b498"
+                   Margin="10"/>
+            
+            <Image Source="ecology.png" VerticalOptions="Center" HeightRequest="150" Margin="50"/>
+
+            <Label Text="{Binding Taskai}"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="26" 
+                   TextColor="#11b498"/>
+            
+            <Label Text="{Binding IkiLygio}"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="26" 
+                   TextColor="#11b498"/>
+            <Frame BorderColor="#12b693" CornerRadius="25" Margin="20,40,20,0" BackgroundColor="#d5f1e7">
+                <Label Text="{Binding Uzduotis}"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="22" 
+                   TextColor="#11b498"/>
+            </Frame>
+            <Button 
+            VerticalOptions="Center" 
+            Text="Atidaryti statistikos istoriją"
+            Margin="20"
+            Command="{Binding OpenStatisticInfoCommand}"
+            TextColor="#12b693"
+            BackgroundColor="Transparent"
+            BorderColor="#12b693"
+            BorderWidth="2"
+            CornerRadius="50"
+                
+            ></Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels"
+             x:Class="CO2Bakalauras.Views.TaskInfoPage">
+
+    <ContentPage.BindingContext>
+        <vm:TaskInfoViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="clipboard.png" VerticalOptions="Center" HeightRequest="150" Margin="20"/>
+            <Label Text="{Binding Name}"
+                   HorizontalOptions="CenterAndExpand" 
+                   TextColor="#11b498" 
+                   FontSize="26"
+                   Margin="10"/>
+            <Frame BorderColor="#12b693" CornerRadius="25" Margin="20" BackgroundColor="#d5f1e7">
+                <StackLayout>
+                    <Label Text="{Binding Category}" 
+                   HorizontalOptions="CenterAndExpand" 
+                   TextColor="#11b498" 
+                   FontSize="24"/>
+
+                    <Label Text="{Binding Description}"
+                   HorizontalTextAlignment="Center"
+                   FontSize="18"
+                   TextColor="#11b498"
+                   Margin="20"/>
+
+                    <Label Text="{Binding Points}" 
+                   HorizontalOptions="CenterAndExpand" 
+                   TextColor="#11b498"
+                   FontSize="16"/>
+                </StackLayout>
+            </Frame>
+
+            
+            <Button Text="Atlikti" Margin = "25,0" Command="{Binding DoTaskCommand}"/>
+            <Button Text="Redaguoti" Margin = "25,0" Command="{Binding UpdateTaskCommand}" IsVisible="{Binding IsAdmin}"/>
+            <Button Text="Pašalinti" Margin = "25,0" Command="{Binding DeleteTaskCommand}" IsVisible="{Binding IsAdmin}" BorderColor="Red"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

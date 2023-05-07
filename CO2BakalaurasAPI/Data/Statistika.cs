@@ -5,9 +5,10 @@ namespace CO2BakalaurasAPI.Data
 {
     public class Statistika
     {
+
+        public int VARTOTOJO_ID { get; set; }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int VARTOTOJO_ID { get; set; }
         public int STATISTIKOS_ID { get; set; }
         public byte LYGIS { get; set; }
         public string? LYGIO_PAVADINIMAS { get; set; }

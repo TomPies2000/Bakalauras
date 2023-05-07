@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels"
+             x:Class="CO2Bakalauras.Views.FriendsPage"
+             Style="{StaticResource ContentStyle}"
+             Title="Draugai">
+
+    <ContentPage.BindingContext>
+        <vm:FriendsViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Pridėti draugą" IconImageSource="Add.png" Command="{Binding AddFriendCommand}"/>
+        <ToolbarItem Text="Patvirtinti draugą" IconImageSource="request.png" Command="{Binding ConfirmFriendCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <ListView ItemsSource="{Binding FriendsList,Mode=TwoWay}" SelectedItem="{Binding SelectedFriend, Mode=TwoWay}" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Frame Padding="0" Margin="5" HeightRequest="100" BorderColor="Azure">
+                                    <StackLayout Orientation="Vertical" Margin="5">
+                                        <Label Text="{Binding Vartotojas.PRISIJUNGIMO_VARDAS}" FontSize="24" />
+                                        <Label Text="Lygis: " LineBreakMode="NoWrap"/>
+                                        <Label Text="{Binding Statistika.LYGIS}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

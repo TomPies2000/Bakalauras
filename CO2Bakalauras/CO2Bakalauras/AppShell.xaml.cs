@@ -18,6 +18,18 @@ namespace CO2Bakalauras
             Routing.RegisterRoute(nameof(HousePage), typeof(HousePage));
             Routing.RegisterRoute(nameof(AddUsagePage), typeof(AddUsagePage));
             Routing.RegisterRoute(nameof(AddUsagePage2), typeof(AddUsagePage2));
+            Routing.RegisterRoute(nameof(CheckUsagePage), typeof(CheckUsagePage));
+
+            Routing.RegisterRoute(nameof(ChangePasswordPage), typeof(ChangePasswordPage));
+            Routing.RegisterRoute(nameof(ChangeProfilePage), typeof(ChangeProfilePage));
+            Routing.RegisterRoute(nameof(TaskInfoPage), typeof(TaskInfoPage));
+            Routing.RegisterRoute(nameof(AddTaskPage), typeof(AddTaskPage));
+
+
+            Routing.RegisterRoute(nameof(AddFriendPage), typeof(AddFriendPage));
+            Routing.RegisterRoute(nameof(ConfirmFriendPage), typeof(ConfirmFriendPage));
+            Routing.RegisterRoute(nameof(FriendInfoPage), typeof(FriendInfoPage));
+
 
         }
     }

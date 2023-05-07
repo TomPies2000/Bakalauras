@@ -25,16 +25,35 @@ namespace CO2Bakalauras.ViewModels
         {
             CreateUser = new Command(CreateNewUser);
         }
+        private bool _activityIndicator;
+        public bool ActivityIndicator
+        {
+            get
+            {
+                return _activityIndicator;
+            }
+            set
+            {
+                _activityIndicator = value;
+                OnPropertyChanged();
+            }
+        }
         private async void CreateNewUser()
         {
+
             WebService webService = new WebService();
             Vartotojas vartotojas = new Vartotojas();
             var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
+            Vartotojas login = await webService.GetUserByName(Login);
 
             if (Login == null || Login.Length == 0)
             {
-                //Prideti patikrinima ar egzistuoja vartotojas su tokiu prisijungimo vardu ir email.
                 await Application.Current.MainPage.DisplayAlert("Oops..", "Įrašykite prisijungimo vardą", "Pakartoti");
+                return;
+            }
+            else if (login != null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Oops..", "Vartotojas su tokiu prisijungimo vardu jau egzistuoja", "Pakartoti");
                 return;
             }
             else if (Name == null || Name.Length == 0)
@@ -52,7 +71,7 @@ namespace CO2Bakalauras.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Oops..", "Įrašykite elektroninį paštą", "Pakartoti");
                 return;
             }
-            else if (Psw1 == null || Psw1.Length == 0 && Psw2 == null || Psw2.Length == 0)
+            else if (Psw1 == null || Psw2 == null || Psw1.Length == 0 || Psw2.Length == 0)
             {
                 await Application.Current.MainPage.DisplayAlert("Oops..", "Įrašykite slaptažodžius", "Pakartoti");
                 return;
@@ -74,16 +93,27 @@ namespace CO2Bakalauras.ViewModels
             }
             else
             {
+                ActivityIndicator = true;
                 vartotojas.PRISIJUNGIMO_VARDAS = Login;
                 vartotojas.VARTOTOJO_VARDAS = Name;
                 vartotojas.VARTOTOJO_PAVARDE = Surname;
                 vartotojas.VARTOTOJO_EMAIL = Email;
                 vartotojas.VARTOTOJO_SLAPTAZODIS = Psw1;
                 await webService.CreateUser(vartotojas);
+                vartotojas = await webService.GetUserByName(Login);
+                Statistika statistika = new Statistika
+                {
+                    VARTOTOJO_ID =vartotojas.VARTOTOJO_ID,
+                    LYGIS = 1,
+                    LYGIO_PAVADINIMAS = "Naujokas",
+                    TASKU_SUMA = 0,
+                    LAIKOTARPIS = DateTime.Now
+                };
+                await webService.CreateStatistic(statistika);
                 await Application.Current.MainPage.DisplayAlert("Registracija", "Registracija sėkminga", "Gerai");
-                await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+                await Shell.Current.GoToAsync($"//{nameof(FirstPage)}");
             }
-
+            ActivityIndicator = false;
 
         }
     }

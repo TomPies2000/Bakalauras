@@ -1,6 +1,7 @@
 ﻿using CO2BakalaurasAPI.Data;
 using CO2BakalaurasAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CO2BakalaurasAPI.Controllers
 {
@@ -50,6 +51,23 @@ namespace CO2BakalaurasAPI.Controllers
                     return StatusCode(404);
                 }
                 return Ok(butas);
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+
+        [HttpDelete("DeleteHouseByUsageID/{ID}")]
+        public IActionResult DeleteHouseByUsageID([FromRoute] int ID)
+        {
+            try
+            {
+                var butas = _dbContext.BUTAS.FirstOrDefault(x => x.SANAUDU_ID == ID);
+                if (butas == null) return StatusCode(404);
+                _dbContext.Entry(butas).State = EntityState.Deleted;
+                _dbContext.SaveChanges();
+                return Ok();
             }
             catch
             {

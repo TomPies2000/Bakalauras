@@ -62,9 +62,9 @@
 
     <TabBar>
         <ShellContent Title="Sanaudos" Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" Icon="Usage.png"/>
-        <ShellContent Title="Statistika" Route="MainPage1" ContentTemplate="{DataTemplate local:MainPage}" Icon="Statistics.png"/>
-        <ShellContent Title="Užduotys" Route="MainPage2" ContentTemplate="{DataTemplate local:MainPage}" Icon="Tasks.png"/>
-        <ShellContent Title="Draugai" Route="MainPage3" ContentTemplate="{DataTemplate local:MainPage}" Icon="Friends.png"/>
+        <ShellContent Title="Statistika" Route="StatisticPage" ContentTemplate="{DataTemplate local:StatisticPage}" Icon="Statistics.png"/>
+        <ShellContent Title="Užduotys" Route="TaskPage" ContentTemplate="{DataTemplate local:TaskPage}" Icon="Tasks.png"/>
+        <ShellContent Title="Draugai" Route="FriendsPage" ContentTemplate="{DataTemplate local:FriendsPage}" Icon="Friends.png"/>
         <ShellContent Title="Profilis" Route="ProfilePage" ContentTemplate="{DataTemplate local:ProfilePage}" Icon="Profile.png"/>
     </TabBar>
     
@@ -72,7 +72,12 @@
         <ShellContent Route="MainPage/AddUsagePage" ContentTemplate="{DataTemplate local:AddUsagePage}">
         </ShellContent>
     </ShellItem>
-    
+
+    <ShellItem Route="checkUsage">
+        <ShellContent Route="MainPage/CheckUsagePage" ContentTemplate="{DataTemplate local:CheckUsagePage}">
+        </ShellContent>
+    </ShellItem>
+
     <ShellItem Route="addUsage2">
         <ShellContent Route="MainPage/AddUsagePage2" ContentTemplate="{DataTemplate local:AddUsagePage2}">
         </ShellContent>
@@ -80,6 +85,52 @@
     
     <ShellItem Route="addUsageWithCar">
         <ShellContent Route="MainPage/AddUsagePage/AddUsagePage2" ContentTemplate="{DataTemplate local:AddUsagePage2}">
+        </ShellContent>
+    </ShellItem>
+    
+    
+    <ShellItem Route="changeProfile">
+        <ShellContent Route="ProfilePage/ChangeProfilePage" ContentTemplate="{DataTemplate local:ChangeProfilePage}">
+        </ShellContent>
+    </ShellItem>
+
+    <ShellItem Route="changePassword">
+        <ShellContent Route="ProfilePage/ChangePasswordPage" ContentTemplate="{DataTemplate local:ChangePasswordPage}">
+        </ShellContent>
+    </ShellItem>
+
+    <ShellItem Route="addTask">
+        <ShellContent Route="TaskPage/AddTaskPage" ContentTemplate="{DataTemplate local:AddTaskPage}">
+        </ShellContent>
+    </ShellItem>
+
+    <ShellItem Route="taskInfo">
+        <ShellContent Route="TaskPage/TaskInfoPage" ContentTemplate="{DataTemplate local:TaskInfoPage}">
+        </ShellContent>
+    </ShellItem>
+
+    <ShellItem Route="updateInfo">
+        <ShellContent Route="TaskInfoPage/AddTaskPage" ContentTemplate="{DataTemplate local:AddTaskPage}">
+        </ShellContent>
+    </ShellItem>
+
+    <ShellItem Route="addFriend">
+        <ShellContent Route="FriendsPage/AddFriendPage" ContentTemplate="{DataTemplate local:AddFriendPage}">
+        </ShellContent>
+    </ShellItem>
+    
+    <ShellItem Route="confirmFriend">
+        <ShellContent Route="FriendsPage/ConfirmFriendPage" ContentTemplate="{DataTemplate local:ConfirmFriendPage}">
+        </ShellContent>
+    </ShellItem>
+
+    <ShellItem Route="friendInfo">
+        <ShellContent Route="FriendsPage/FriendInfoPage" ContentTemplate="{DataTemplate local:FriendInfoPage}">
+        </ShellContent>
+    </ShellItem>
+
+    <ShellItem Route="userStatisticInfo">
+        <ShellContent Route="StatisticPage/FriendInfoPage" ContentTemplate="{DataTemplate local:FriendInfoPage}">
         </ShellContent>
     </ShellItem>
 </Shell>

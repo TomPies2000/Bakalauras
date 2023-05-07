@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels"
+             x:Class="CO2Bakalauras.Views.ConfirmFriendPage"
+             Style="{StaticResource ContentStyle}"
+             Title="Patvirtinti pakvietimą į draugus">
+
+
+    <ContentPage.BindingContext>
+        <vm:ConfirmFriendViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <ListView ItemsSource="{Binding FriendsList,Mode=TwoWay}" SelectedItem="{Binding SelectedFriend, Mode=TwoWay}" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Frame Padding="0" Margin="5" HeightRequest="100" BorderColor="Azure">
+                                    <StackLayout Orientation="Vertical" Margin="5">
+                                        <Label Text="{Binding PRISIJUNGIMO_VARDAS}" FontSize="24" />
+                                        <Label Text="{Binding VARTOTOJO_VARDAS}"/>
+                                        <Label Text="{Binding VARTOTOJO_PAVARDE}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Patvirtinti draugą" Margin = "10,75,10,20" Command="{Binding ConfirmFriendCommand}"/>
+            <Button Text="Atmesti draugą" Margin = "10,0,10,20" Command="{Binding DeclineFriendCommand}" BorderColor="Red"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

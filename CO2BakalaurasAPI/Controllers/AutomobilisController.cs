@@ -1,6 +1,7 @@
 ﻿using CO2BakalaurasAPI.Data;
 using CO2BakalaurasAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CO2BakalaurasAPI.Controllers
 {
@@ -50,6 +51,23 @@ namespace CO2BakalaurasAPI.Controllers
                     return StatusCode(404);
                 }
                 return Ok(automobilis);
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+
+        [HttpDelete("DeleteCarByUsageID/{ID}")]
+        public IActionResult DeleteCarByUsageID([FromRoute] int ID)
+        {
+            try
+            {
+                var automobilis = _dbContext.AUTOMOBILIS.FirstOrDefault(x => x.SANAUDU_ID == ID);
+                if (automobilis == null) return StatusCode(404);
+                _dbContext.Entry(automobilis).State = EntityState.Deleted;
+                _dbContext.SaveChanges();
+                return Ok();
             }
             catch
             {

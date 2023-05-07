@@ -15,24 +15,25 @@
     
     <ContentPage.Content>
         <StackLayout>
-            
-            <Label Text="Per paskutinį mėnesį sugeneruota Kg CO2:" 
+
+            <Label Text="{Binding Text}" 
                    HorizontalOptions="CenterAndExpand" 
                    Margin="0,40,0,0"
                    FontSize="16"/>
             <Label Text="{Binding CoSum}"
                    HorizontalOptions="CenterAndExpand" 
-                   FontSize="50" 
+                   FontSize="40" 
                    TextColor="#11b498"/>
 
             <microcharts:ChartView x:Name="chartView" HeightRequest="300" Chart ="{Binding ChartView}" />
 
+            <Button Text="Peržiūrėti sąnaudas" Margin = "50,30,50,15" Command="{Binding CheckUsageCommand}"/>
             <Button 
                 VerticalOptions="Center" 
                 Text="Pridėti sanaudų informaciją" 
                 TextColor="#12b693"
                 Command="{Binding AddUsageCommand}"
-                Margin="50,80"
+                Margin="50,0"
                 BackgroundColor="Transparent"
                 BorderColor="#12b693"
                 BorderWidth="2"

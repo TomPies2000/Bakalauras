@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels"
+             x:Class="CO2Bakalauras.Views.TaskPage"
+             Title="Užduotys"
+             Style="{StaticResource ContentStyle}">
+
+    <ContentPage.BindingContext>
+        <vm:TaskViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Pridėti užduotį" IconImageSource="Add.png" Command="{Binding AddTaskCommand}"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <Label Text="Filtruoti pagal" FontSize="Large" TextColor="#11b498" Margin="0,20,0,0"/>
+                <Picker SelectedItem ="{Binding Selected}" SelectedIndex="4" Margin="0,0,0,20">
+                    <Picker.Items>
+                        <x:String>Elektrą</x:String>
+                        <x:String>Šildymą</x:String>
+                        <x:String>Transportą</x:String>
+                        <x:String>Vandenį</x:String>
+                        <x:String>Visas</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <ListView ItemsSource="{Binding TaskList,Mode=TwoWay}" SelectedItem="{Binding SelectedTask, Mode=TwoWay}" RowHeight="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Frame Padding="0" Margin="5" HeightRequest="100" BorderColor="Azure">
+                                        <StackLayout Orientation="Vertical" Margin="5">
+                                            <Label Text="{Binding PAVADINIMAS}" FontSize="24"/>
+                                            <Label Text="{Binding KATEGORIJA}"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

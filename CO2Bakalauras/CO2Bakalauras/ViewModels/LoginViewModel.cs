@@ -39,13 +39,20 @@ namespace CO2Bakalauras.ViewModels
             ActivityIndicator = true;
             WebService webService = new WebService();
             Vartotojas vartotojas = await webService.GetUserByLogin(Login, Psw);
-            ((App)App.Current).CurrentUser = vartotojas;
+            
+
             if (vartotojas == null)
             {
                 await Application.Current.MainPage.DisplayAlert("Prisijungimas", "Prisijungimas nesėkmingas", "Pakartoti");
+                ActivityIndicator = false;
+                return;
             }
             else
             {
+                Administratorius admin = await webService.GetAdminByUserID(vartotojas.VARTOTOJO_ID);
+                if (admin != null)
+                    ((App)App.Current).CurrentAdmin = admin;
+                ((App)App.Current).CurrentUser = vartotojas;
                 List<Sanaudos> sanaudos = await webService.GetUserUsage(vartotojas.VARTOTOJO_ID);
                 if (sanaudos == null || sanaudos.Count == 0)
                 {

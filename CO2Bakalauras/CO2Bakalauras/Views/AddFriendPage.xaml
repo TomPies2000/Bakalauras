@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels"
+             x:Class="CO2Bakalauras.Views.AddFriendPage"
+             Style="{StaticResource ContentStyle}"
+             Title="Pridėti draugą">
+
+
+    <ContentPage.BindingContext>
+        <vm:AddFriendViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar Placeholder="Ieškoti draugą" 
+                       SearchCommand="{Binding FindFriendCommand}"
+                       Text="{Binding Text}"/>
+
+            <ListView ItemsSource="{Binding FriendsList,Mode=TwoWay}" SelectedItem="{Binding SelectedFriend, Mode=TwoWay}" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Frame Padding="0" Margin="5" HeightRequest="100" BorderColor="Azure">
+                                    <StackLayout Orientation="Vertical" Margin="5">
+                                        <Label Text="{Binding PRISIJUNGIMO_VARDAS}" FontSize="24" />
+                                        <Label Text="{Binding VARTOTOJO_VARDAS}"/>
+                                        <Label Text="{Binding VARTOTOJO_PAVARDE}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Pridėti draugą" Margin = "0,75,0,20" Command="{Binding AddFriendCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

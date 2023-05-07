@@ -14,13 +14,13 @@
             <Image Source="vehicle.png" VerticalOptions="Center" HeightRequest="300"/>
             <Label 
                 HorizontalTextAlignment="Center"
-                Text="Duomenys apie automobilį"
+                Text="Duomenys apie automobilį (Esama rida)"
                 TextColor="#12b693"
                 FontSize="Large"
                 Margin=" 0,0,0,30"/>
 
             <Label Text="{Binding CurrentMileage}"/>
-            <Entry Placeholder="Rida" Keyboard="Numeric" Text="{Binding Mileage}" TextColor="#11b498" PlaceholderColor="#12b693"/>
+            <Entry Placeholder="Esama rida" Keyboard="Numeric" Text="{Binding Mileage}" TextColor="#11b498" PlaceholderColor="#12b693"/>
             <ActivityIndicator  IsRunning="{Binding ActivityIndicator}"/>
             <Button Text="Pateikti" Margin = "0,50,0,20" Command="{Binding AddCarCommand}"/>
 

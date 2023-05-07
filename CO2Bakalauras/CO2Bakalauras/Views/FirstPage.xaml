@@ -15,20 +15,6 @@
             <ActivityIndicator  IsRunning="{Binding ActivityIndicator}" />
 
             <Button 
-                
-                VerticalOptions="Center" 
-                Text="Prisijungti su Google" 
-                Margin="0,5" 
-                Command="{Binding LoginWithGoogle}"
-                TextColor="#12b693"
-                BackgroundColor="Transparent"
-                BorderColor="#12b693"
-                BorderWidth="2"
-                CornerRadius="50"
-                
-            ></Button>
-
-            <Button 
                 VerticalOptions="Center" 
                 Text="Prisijungti su paskyra" 
                 Margin="0,5" 

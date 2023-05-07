@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels" 
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="CO2Bakalauras.Views.CheckUsagePage"
+             Style="{StaticResource ContentStyle}"
+             Title="Sanaudų statistika">
+
+    <ContentPage.BindingContext>
+        <vm:CheckUsageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Filtruoti pagal" FontSize="Large" TextColor="#11b498" Margin="0,20,0,0"/>
+            <Picker  Margin="0,0,0,20" ItemsSource="{Binding Items}" SelectedIndex="4" SelectedItem ="{Binding Selected}"/>
+
+            <microcharts:ChartView x:Name="chartView" HeightRequest="300" Chart ="{Binding ChartView}" />
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

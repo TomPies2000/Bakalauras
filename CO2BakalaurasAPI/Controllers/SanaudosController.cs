@@ -83,5 +83,22 @@ namespace CO2BakalaurasAPI.Controllers
 
         }
 
+        [HttpDelete("DeleteUsageByUserID/{ID}")]
+        public IActionResult DeleteUsageByUserID([FromRoute] int ID)
+        {
+            try
+            {
+                var sanaudos = _dbContext.SANAUDOS.FirstOrDefault(x => x.VARTOTOJO_ID == ID);
+                if (sanaudos == null) return StatusCode(404);
+                _dbContext.Entry(sanaudos).State = EntityState.Deleted;
+                _dbContext.SaveChanges();
+                return Ok();
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+
     }
 }

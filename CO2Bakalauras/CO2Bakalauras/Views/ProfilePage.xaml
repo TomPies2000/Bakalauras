@@ -10,11 +10,20 @@
         <vm:ProfileViewModel/>
     </ContentPage.BindingContext>
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Atsijungti" IconImageSource="sign_out.png" Command="{Binding SignOutCommand}"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Image Source="user.png" VerticalOptions="Center" HeightRequest="250" Margin="50,10"/>
+            <Label Text="Sveiki" FontSize="Large" TextColor="#11b498" HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding Login}" FontSize="Large" TextColor="#11b498" />
+            <Label Text="{Binding Email}" FontSize="Large" TextColor="#11b498" />
+            <Button Text="Pakeisti profilio duomenys" Margin = "40,100,40,0" Command="{Binding UpdateProfileCommand}"/>
+            <Button Text="Pakeisti slaptažodį" Margin = "40,0,40,0" Command="{Binding UpdatePasswordCommand}"/>
+            <Button Text="Pašalinti profilį" Margin = "40,0,40,0" Command="{Binding DeleteProfileCommand}" BorderColor="Red"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

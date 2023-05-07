@@ -14,4 +14,6 @@ namespace CO2Bakalauras.Models
         public DateTime LAIKOTARPIS { get; set; }
 
     }
+
+
 }

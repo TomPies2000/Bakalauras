@@ -1,6 +1,8 @@
 ﻿using CO2Bakalauras.Models;
 using CO2Bakalauras.Services;
 using CO2Bakalauras.Views;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -37,8 +39,6 @@ namespace CO2Bakalauras.ViewModels
         }
         public AddUsageViewModel()
         {
-            
-            //ToListCommand = new Command(async () => { await Load(); });
             Load();
             AddCarCommand = new Command(AddCar);
         }
@@ -47,7 +47,8 @@ namespace CO2Bakalauras.ViewModels
         {
             WebService webService = new WebService();
 
-            Sanaudos sanaudos = await webService.GetUserUsage(vartotojas.VARTOTOJO_ID);
+            List<Sanaudos> sanaudosList = await webService.GetUserUsage(vartotojas.VARTOTOJO_ID);
+            Sanaudos sanaudos = sanaudosList.OrderByDescending(o => o.DATA).Take(1).FirstOrDefault();
 
             Automobilis auto = await webService.GetCarByUsageId(sanaudos.SANAUDU_ID);
             CurrentMileage = "Prieš mėnesį automobilio rida buvo - " + auto.RIDA + " km";

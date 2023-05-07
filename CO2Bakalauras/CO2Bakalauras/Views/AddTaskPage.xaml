@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels"
+             x:Class="CO2Bakalauras.Views.AddTaskPage">
+
+    <ContentPage.BindingContext>
+        <vm:AddTaskViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <Image Source="clipboard.png" VerticalOptions="Center" HeightRequest="150" Margin="25"/>
+
+            <Entry Placeholder="Užduoties pavadinimas" Text="{Binding Name}" TextColor="#11b498" PlaceholderColor="Gray"/>
+
+            <Entry Placeholder="Aprašymas" Text="{Binding Description}" TextColor="#11b498" PlaceholderColor="Gray" />
+
+            <Entry Placeholder="Taškų skaičius" Text="{Binding Points}" TextColor="#11b498" PlaceholderColor="Gray"/>
+
+            <Picker SelectedItem ="{Binding Selected}" Title="Kategorija" ItemsSource="{Binding Categorie}" TextColor="#11b498">
+
+            </Picker>
+
+            <TimePicker Time="{Binding SelectedTime}" TextColor="#11b498"/>
+
+
+            <Button Text="{Binding ButtonText}" Margin = "0,50,0,20" Command="{Binding AddTaskCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

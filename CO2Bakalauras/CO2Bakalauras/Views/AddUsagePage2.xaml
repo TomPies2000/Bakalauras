@@ -12,16 +12,19 @@
     <ContentPage.Content>
         <StackLayout>
             <Image Source="lighting.png" VerticalOptions="Center" HeightRequest="250" Margin="50" IsVisible="{Binding ElectricityVisible}"/>
-            <Label Text="{Binding CurrentElectricity}" IsVisible="{Binding ElectricityVisible}"/>
+            <Label Text="{Binding CurrentElectricity}" IsVisible="{Binding ElectricityVisible}" FontSize="20" TextColor="#11b498" HorizontalOptions="EndAndExpand"/>
             <Entry Placeholder="Elektros sąnaudos" Text="{Binding Electricity}" Keyboard="Numeric" TextColor="#11b498" PlaceholderColor="Gray" IsVisible="{Binding ElectricityVisible}"/>
+            <Label Text="*Įrašykite skaitiklio duomenis" IsVisible="{Binding ElectricityVisible}" FontSize="12"/>
 
             <Image Source="water.png" VerticalOptions="Center" HeightRequest="250" Margin="50" IsVisible="{Binding WaterVisible}"/>
-            <Label Text="{Binding CurrentWater}" IsVisible="{Binding WaterVisible}"/>
+            <Label Text="{Binding CurrentWater}" IsVisible="{Binding WaterVisible}" FontSize="20" TextColor="#11b498"/>
             <Entry Placeholder="Vandens sąnaudos" Text="{Binding Water}" Keyboard="Numeric" TextColor="#11b498" PlaceholderColor="Gray" IsVisible="{Binding WaterVisible}"/>
-
+            <Label Text="*Įrašykite skaitiklio duomenis" IsVisible="{Binding WaterVisible}" FontSize="12"/>
+            
             <Image Source="flame.png" VerticalOptions="Center" HeightRequest="250" Margin="50" IsVisible="{Binding GasVisible}"/>
-            <Label Text="{Binding CurrentGas}" IsVisible="{Binding GasVisible}"/>
+            <Label Text="{Binding CurrentGas}" IsVisible="{Binding GasVisible}" FontSize="20" TextColor="#11b498"/>
             <Entry Placeholder="Dujų sąnaudos" Text="{Binding Gas}" Keyboard="Numeric" TextColor="#11b498" PlaceholderColor="Gray" IsVisible="{Binding GasVisible}"/>
+            <Label Text="*Įrašykite skaitiklio duomenis" IsVisible="{Binding GasVisible}" FontSize="12"/>
 
             <Button Text="Toliau" Margin = "0,50,0,20" Command="{Binding NextCommand}"/>
         </StackLayout>

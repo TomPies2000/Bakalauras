@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:vm="clr-namespace:CO2Bakalauras.ViewModels"
              x:Class="CO2Bakalauras.Views.MileagePage"
-             Style="{StaticResource ContentStyle}">
+             Style="{StaticResource ContentStyle}"
+             Shell.NavBarIsVisible="False">
     
     <ContentPage.BindingContext>
         <vm:MileageViewModel/>

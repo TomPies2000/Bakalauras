@@ -8,6 +8,7 @@
              Style="{StaticResource ContentStyle}"
              Shell.NavBarIsVisible="False">
     
+    
     <ContentPage.Content>
         <StackLayout Padding="40" VerticalOptions="Center">
             <Image Source="logo.png" VerticalOptions="Center" HeightRequest="300" />
@@ -16,7 +17,7 @@
             
             <Entry Placeholder="Prisijungimo vardas" Text="{Binding Login}" TextColor="#11b498" PlaceholderColor="Gray"/>
             <Entry Placeholder="Slaptažodis" IsPassword="True" Text="{Binding Psw}" TextColor="#11b498" PlaceholderColor="Gray"/>
-            <Button 
+            <Button
                 VerticalOptions="Center" 
                 Text="Prisijungti" 
                 TextColor="#12b693"

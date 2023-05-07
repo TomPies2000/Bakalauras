@@ -10,6 +10,7 @@ namespace CO2Bakalauras
     public partial class App : Application
     {
         public Vartotojas CurrentUser { get; set; }
+        public Administratorius CurrentAdmin { get; set; }
         public App()
         {
             InitializeComponent();
